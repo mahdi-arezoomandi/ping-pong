@@ -5,10 +5,10 @@ using UnityEngine;
 public class spawnScript : MonoBehaviour
 {
     public GameObject Ball;
-    public Rigidbody2D BallRigid;
+   
     private float Position;
-    private float SpeedBall;
-    public float time = 0;
+    
+   
     
    
     // Start is called before the first frame update
@@ -30,15 +30,12 @@ public class spawnScript : MonoBehaviour
     {
        
         Position = Random.Range(-4, 4);
+        if (GameObject.FindGameObjectWithTag("Respawn")==false)
+         Instantiate(Ball, new Vector2(transform.position.x, Position), transform.rotation);
 
-        if (time < 3)
-            time = time + Time.deltaTime;
-        else
-        {
-            Instantiate(Ball, new Vector2(transform.position.x, Position), transform.rotation);
-            
-            time = 0;
-        }
+
+
+
 
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6537581301105675539}
   - component: {fileID: 7990646976882784073}
   - component: {fileID: 6748780673202121143}
+  - component: {fileID: 6019984314935489843}
   m_Layer: 0
   m_Name: ball
   m_TagString: Respawn
@@ -158,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6019984314935489843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745817044872893486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32228b6b2d94b14292cc24b26806802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidball: {fileID: 6748780673202121143}
