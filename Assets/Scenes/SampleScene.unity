@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 318358541}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &318358538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -744,8 +744,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 4745817044872893486, guid: a5a82b387ecc9ad4398ab492101be93b, type: 3}
-  BallRigid: {fileID: 6748780673202121143, guid: a5a82b387ecc9ad4398ab492101be93b, type: 3}
-  time: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
