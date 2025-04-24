@@ -9,13 +9,15 @@ public class BallScript : MonoBehaviour
     private float ballspeedY;
     private float ballspeed;
     public float speed = 50;
-
+    
+   
     // Start is called before the first frame update
     void Start()
     {
         ballspeedX = Random.Range(-5, 5);
         ballspeedX = Random.Range(-5, 5);
         ballspeedY = Random.Range(-5, 5);
+       
         Rigidball.AddForce(new Vector2(ballspeedX*50, ballspeedY*50));
     }
 
@@ -29,6 +31,9 @@ public class BallScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            Rigidball.AddForce(new Vector2(9*50,ballspeed*50));
+        {
+            Rigidball.AddForce(new Vector2(9 * 50, ballspeed * 50));
+            
+        }
     }
 }
