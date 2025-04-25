@@ -10,26 +10,14 @@ public class BallScript : MonoBehaviour
     private float ballspeeda;
     private float ballspeedb;
     public float speed ;
-   
+    private bool again=true;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        ballspeeda =Random.Range(0f,1f);
-        ballspeedb = Random.Range(0f, 1f);
-        if (ballspeeda > 0.5f)
-            ballspeedX = 5;
-        else
-            ballspeedX = -5;
-        if (ballspeedb > 0.5f)
-            ballspeedY = Random.Range(2, 5);
-        else
-            ballspeedY = Random.Range(-5, -2);
-
-        SBall(ballspeedX, ballspeedY);
-               
+       
        
       
 
@@ -38,9 +26,27 @@ public class BallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x<-9||transform.position.x>9)
-            Destroy(gameObject);
-        
+        if (again== true)
+        {
+            ballspeeda = Random.Range(0f, 1f);
+            ballspeedb = Random.Range(0f, 1f);
+            if (ballspeeda > 0.5f)
+                ballspeedX = 5;
+            else
+                ballspeedX = -5;
+            if (ballspeedb > 0.5f)
+                ballspeedY = Random.Range(2, 5);
+            else
+                ballspeedY = Random.Range(-5, -2);
+            
+            SBall(ballspeedX, ballspeedY);
+            again = false;
+        }
+        if (transform.position.x < -9 || transform.position.x > 9)
+        {
+            transform.position = new Vector2(0, 0);
+            again = true;
+        }
     }
   
     public virtual void SBall(float x,float y)
