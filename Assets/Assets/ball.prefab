@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidball: {fileID: 6748780673202121143}
-  speed: 1.5
+  speed: 0.75

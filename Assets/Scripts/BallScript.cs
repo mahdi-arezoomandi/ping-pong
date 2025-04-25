@@ -47,4 +47,5 @@ public class BallScript : MonoBehaviour
     {
         Rigidball.velocity=new Vector2(x * speed, y * speed);
     }
+    
 }
