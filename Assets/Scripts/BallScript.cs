@@ -9,6 +9,7 @@ public class BallScript : MonoBehaviour
     private float ballspeedY;
     private float ballspeeda;
     private float ballspeedb;
+    private float ballspeedS;
     public float speed ;
     private bool again=true;
 
@@ -31,9 +32,13 @@ public class BallScript : MonoBehaviour
             ballspeeda = Random.Range(0f, 1f);
             ballspeedb = Random.Range(0f, 1f);
             if (ballspeeda > 0.5f)
+            {
                 ballspeedX = 5;
+                ballspeedS = Random.Range(0, 2.5f);
+            }
             else
                 ballspeedX = -5;
+                     ballspeedS = Random.Range(0, -2.5f);
             if (ballspeedb > 0.5f)
                 ballspeedY = Random.Range(2, 5);
             else
@@ -44,7 +49,7 @@ public class BallScript : MonoBehaviour
         }
         if (transform.position.x < -9 || transform.position.x > 9)
         {
-            transform.position = new Vector2(0, 0);
+            transform.position = new Vector2(0, ballspeedS);
             again = true;
         }
     }
