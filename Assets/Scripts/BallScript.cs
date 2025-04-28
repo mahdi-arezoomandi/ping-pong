@@ -12,6 +12,7 @@ public class BallScript : MonoBehaviour
     private float ballspeedS;
     public float speed ;
     private bool again=true;
+    private bool again1 = true;
     private LOgicscript logic;
 
 
@@ -25,7 +26,7 @@ public class BallScript : MonoBehaviour
     }
     
     // Update is called once per frame
-    void Update()
+    void  FixedUpdate()
     {
         if (again== true)
         {
@@ -37,8 +38,10 @@ public class BallScript : MonoBehaviour
                 ballspeedS = Random.Range(0, 2.5f);
             }
             else
+            {
                 ballspeedX = -5;
-                     ballspeedS = Random.Range(0, -2.5f);
+                ballspeedS = Random.Range(0, -2.5f);
+            }
             if (ballspeedb > 0.5f)
                 ballspeedY = Random.Range(2, 5);
             else
@@ -50,7 +53,7 @@ public class BallScript : MonoBehaviour
         if (transform.position.x < -9 || transform.position.x > 9)
         {
             transform.position = new Vector2(0, ballspeedS);
-            Rigidball.velocity = new Vector2(ballspeedX * speed, ballspeedY * speed);
+           
             again = true;
         }
        
@@ -66,5 +69,15 @@ public class BallScript : MonoBehaviour
             logic.AddEScore();
         else if (collision.CompareTag("Etriger"))
             logic.AddPScore();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && again1 == true || collision.gameObject.CompareTag("Enemy")&&again1==true)
+        {
+            speed = 2.25f;
+            SBall(ballspeedX, ballspeedY);
+            Debug.Log("1");
+            again1 = false;
+        }
     }
 }
