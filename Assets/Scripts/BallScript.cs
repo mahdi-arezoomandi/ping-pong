@@ -77,7 +77,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && again1 == true || collision.gameObject.CompareTag("Enemy")&&again1==true)
         {
-            speed = 2.25f;
+            speed = 2.5f;
             SBall(ballspeedX, ballspeedY);
             Debug.Log("1");
             again1 = false;

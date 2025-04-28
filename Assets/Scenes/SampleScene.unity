@@ -933,8 +933,8 @@ MonoBehaviour:
   Enemyscore: {fileID: 1090642622}
   Win: {fileID: 1949943485}
   Lose: {fileID: 1356896289}
-  sound: {fileID: 0}
-  sfx: {fileID: 0}
+  sound: {fileID: 1785797092}
+  sfx: {fileID: 8300000, guid: c5249f5e4ed72b648ac937764e046768, type: 3}
 --- !u!4 &497647201
 Transform:
   m_ObjectHideFlags: 0
