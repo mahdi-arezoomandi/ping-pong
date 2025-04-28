@@ -14,6 +14,7 @@ public class BallScript : MonoBehaviour
     private bool again=true;
     private bool again1 = true;
     private LOgicscript logic;
+    public float time = 0;
 
 
     // Start is called before the first frame update
@@ -55,8 +56,18 @@ public class BallScript : MonoBehaviour
             if (transform.position.x < -9 || transform.position.x > 9)
             {
                 transform.position = new Vector2(0, ballspeedS);
+                speed = 1;
+                
 
                 again = true;
+            }
+            if (time < 2)
+            {
+                time = time + Time.deltaTime;
+            }
+            else
+            { 
+                time = 0;again1 = true;
             }
         }
        
@@ -75,13 +86,15 @@ public class BallScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && again1 == true || collision.gameObject.CompareTag("Enemy")&&again1==true)
+        
+        if (collision.gameObject.CompareTag("Player") && again1 == true || collision.gameObject.CompareTag("Enemy")&& again1==true)
         {
-            speed = 2.5f;
+            speed = 3f;
             SBall(ballspeedX, ballspeedY);
             Debug.Log("1");
             again1 = false;
         }
+
         logic.Playsfx();
     }
 }

@@ -52,6 +52,10 @@ public class LOgicscript : MonoBehaviour
     {
         sound.PlayOneShot(sfx);
     }
-  
+   public void exit()
+    {
+        Application.Quit();
+
+    }
     
 }
