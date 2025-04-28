@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class spawnScript : MonoBehaviour
 {
     public GameObject Ball;
-   
     private float Position;
+    [Header("audioSource")]
+    public AudioSource sound;
+    [Header("audioClip")]
+    public AudioClip sfx; 
     
    
     

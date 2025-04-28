@@ -28,33 +28,36 @@ public class BallScript : MonoBehaviour
     // Update is called once per frame
     void  FixedUpdate()
     {
-        if (again== true)
+        if(logic.Lose.active == false && logic.Win.active == false)
         {
-            ballspeeda = Random.Range(0f, 1f);
-            ballspeedb = Random.Range(0f, 1f);
-            if (ballspeeda > 0.5f)
+            if (again == true)
             {
-                ballspeedX = 5;
-                ballspeedS = Random.Range(0, 2.5f);
+                ballspeeda = Random.Range(0f, 1f);
+                ballspeedb = Random.Range(0f, 1f);
+                if (ballspeeda > 0.5f)
+                {
+                    ballspeedX = 5;
+                    ballspeedS = Random.Range(0, 2.5f);
+                }
+                else
+                {
+                    ballspeedX = -5;
+                    ballspeedS = Random.Range(0, -2.5f);
+                }
+                if (ballspeedb > 0.5f)
+                    ballspeedY = Random.Range(2, 5);
+                else
+                    ballspeedY = Random.Range(-5, -2);
+
+                SBall(ballspeedX, ballspeedY);
+                again = false;
             }
-            else
+            if (transform.position.x < -9 || transform.position.x > 9)
             {
-                ballspeedX = -5;
-                ballspeedS = Random.Range(0, -2.5f);
+                transform.position = new Vector2(0, ballspeedS);
+
+                again = true;
             }
-            if (ballspeedb > 0.5f)
-                ballspeedY = Random.Range(2, 5);
-            else
-                ballspeedY = Random.Range(-5, -2);
-            
-            SBall(ballspeedX, ballspeedY);
-            again = false;
-        }
-        if (transform.position.x < -9 || transform.position.x > 9)
-        {
-            transform.position = new Vector2(0, ballspeedS);
-           
-            again = true;
         }
        
     }
@@ -79,5 +82,6 @@ public class BallScript : MonoBehaviour
             Debug.Log("1");
             again1 = false;
         }
+        logic.Playsfx();
     }
 }

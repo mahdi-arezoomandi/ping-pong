@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LOgicscript : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class LOgicscript : MonoBehaviour
     public Text Enemyscore;
     private int Pscore;
     private int Escore;
+    public GameObject Win;
+    public GameObject Lose;
+    [Header("audioSource")]
+    public AudioSource sound;
+    [Header("audioClip")]
+    public AudioClip sfx;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +27,11 @@ public class LOgicscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Pscore == 10)
+
+            Win.SetActive(true);
+        else if (Escore == 10)
+            Lose.SetActive(true);
     }
     public void AddPScore()
     {
@@ -31,4 +43,15 @@ public class LOgicscript : MonoBehaviour
         Escore =Escore+ 1;
         Enemyscore.text = Escore.ToString();
     }
+    public void Tryagain()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+        
+    public void Playsfx()
+    {
+        sound.PlayOneShot(sfx);
+    }
+  
+    
 }
