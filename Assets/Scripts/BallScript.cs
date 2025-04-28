@@ -12,14 +12,14 @@ public class BallScript : MonoBehaviour
     private float ballspeedS;
     public float speed ;
     private bool again=true;
-
+    private LOgicscript logic;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
-       
+
+        logic = GameObject.FindGameObjectWithTag("logic").GetComponent<LOgicscript>();
       
 
     }
@@ -50,13 +50,21 @@ public class BallScript : MonoBehaviour
         if (transform.position.x < -9 || transform.position.x > 9)
         {
             transform.position = new Vector2(0, ballspeedS);
+            Rigidball.velocity = new Vector2(ballspeedX * speed, ballspeedY * speed);
             again = true;
         }
+       
     }
   
     public virtual void SBall(float x,float y)
     {
-        Rigidball.velocity=new Vector2(x * speed, y * speed);
+        Rigidball.velocity = new Vector2(x* speed, y* speed);
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ptriger"))
+            logic.AddEScore();
+        else if (collision.CompareTag("Etriger"))
+            logic.AddPScore();
+    }
 }
