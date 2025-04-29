@@ -7,6 +7,7 @@ public class MoveScript : MonoBehaviour
     public Rigidbody2D Ping;
     private float Move;
     public float speed;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class MoveScript : MonoBehaviour
         Move = Input.GetAxis("Vertical");
 
         Ping.velocity = new Vector2(Ping.velocity.x, Move * speed);
+       
     }
 }
